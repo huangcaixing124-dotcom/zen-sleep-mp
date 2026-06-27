@@ -27,8 +27,8 @@
   <!-- 中央光晕（呼吸脉动） -->
   <view class="glow glow-breathe" style="width:{{imgSize * 2.6}}rpx; height:{{imgSize * 2.6}}rpx;"></view>
 
-  <!-- 图片（敲击时亮度提升） -->
-  <view class="img-area" style="width:{{imgSize}}rpx; height:{{imgSize}}rpx;">
+  <!-- 图片 -->
+  <view class="img-area {{striking ? 'active' : ''}}" style="width:{{imgSize}}rpx; height:{{imgSize}}rpx;">
     <image
       class="zen-img {{striking ? 'striking' : ''}}"
       src="{{mode === 'muyu' ? '/assets/images/muyu.png' : '/assets/images/bowl.png'}}"
