@@ -15,15 +15,10 @@
 
   <!-- 呼吸圆 -->
   <view class="breath-area">
-    <!-- 外层光晕 -->
     <view class="breath-glow" style="width:{{glowSize}}px; height:{{glowSize}}px; background:radial-gradient(circle, {{glowColor}} 0%, transparent 70%);"></view>
-
-    <!-- 3层呼吸圆 -->
     <view class="breath-ring ring-outer" style="width:{{ringOuter}}px; height:{{ringOuter}}px; border-color:{{colorOuter}};"></view>
     <view class="breath-ring ring-mid" style="width:{{ringMid}}px; height:{{ringMid}}px; border-color:{{colorMid}};"></view>
     <view class="breath-circle" style="width:{{circleSize}}px; height:{{circleSize}}px; background:{{colorInner}};"></view>
-
-    <!-- 圆内高光 -->
     <view class="breath-highlight" style="width:{{circleSize * 0.8}}px; height:{{circleSize * 0.8}}px;"></view>
   </view>
 

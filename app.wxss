@@ -9,10 +9,8 @@ page {
   min-height: 100vh;
   background: #08060e;
   position: relative;
-  overflow: hidden;
 }
 
-/* 淡入动画 */
 .fade-in {
   animation: fadeIn 0.8s ease-out;
 }
