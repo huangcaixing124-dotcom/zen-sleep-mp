@@ -1,0 +1,39 @@
+<!--pages/home/home.wxml-->
+<view class="container fade-in">
+  <!-- 背景渐变 -->
+  <view class="bg"></view>
+
+  <!-- 粒子效果 -->
+  <view class="particles">
+    <view class="particle" wx:for="{{40}}" wx:key="index"
+      style="left:{{(item * 17 + 7) % 100}}%; top:{{(item * 31 + 13) % 100}}%; animation-delay:{{(item * 0.7) % 5}}s; animation-duration:{{10 + (item % 6) * 3}}s; width:{{2 + (item % 3)}}rpx; height:{{2 + (item % 3)}}rpx; opacity:{{0.2 + (item % 4) * 0.1}};">
+    </view>
+  </view>
+
+  <!-- 标题 -->
+  <view class="title-area">
+    <text class="title">禅 眠</text>
+    <text class="subtitle">静心 · 入眠</text>
+  </view>
+
+  <!-- 按钮区域 -->
+  <view class="btn-area">
+    <!-- 呼吸按钮 -->
+    <view class="btn btn-breath" bindtap="goBreathing">
+      <view class="btn-glow breath-glow"></view>
+      <text class="btn-label">呼 吸</text>
+      <text class="btn-sub">跟随节奏，放松身心</text>
+    </view>
+
+    <!-- 禅修按钮 -->
+    <view class="btn btn-zen" bindtap="goZen">
+      <view class="ripple-ring r1"></view>
+      <view class="ripple-ring r2"></view>
+      <view class="ripple-ring r3"></view>
+      <view class="ripple-ring r4"></view>
+      <view class="ripple-ring r5"></view>
+      <text class="btn-label">禅 修</text>
+      <text class="btn-sub">木鱼 · 颂钵 · 静心</text>
+    </view>
+  </view>
+</view>

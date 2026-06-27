@@ -1,0 +1,148 @@
+/* pages/breathing/breathing.wxss */
+.container {
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #08060e;
+}
+
+.bg {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(180deg, #06050c 0%, #0a0815 50%, #0d0a1a 100%);
+  z-index: 0;
+}
+
+.particles {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  width: 2rpx;
+  height: 2rpx;
+  background: rgba(180,160,200,0.3);
+  border-radius: 50%;
+  animation: drift linear infinite;
+}
+
+@keyframes drift {
+  0% { transform: translateY(0) translateX(0); opacity: 0; }
+  10% { opacity: 0.3; }
+  90% { opacity: 0.3; }
+  100% { transform: translateY(-80vh) translateX(20rpx); opacity: 0; }
+}
+
+/* 呼吸区域 */
+.breath-area {
+  position: relative;
+  width: 400rpx;
+  height: 400rpx;
+  margin-top: 28vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+.breath-glow {
+  position: absolute;
+  border-radius: 50%;
+  transition: all 0.3s;
+}
+
+.breath-ring {
+  position: absolute;
+  border-radius: 50%;
+  border-style: solid;
+  transition: all 0.1s linear;
+}
+
+.breath-circle {
+  position: absolute;
+  border-radius: 50%;
+  transition: all 0.1s linear;
+}
+
+.breath-highlight {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,255,255,0.06) 0%, transparent 70%);
+}
+
+/* 阶段文字 */
+.phase-text {
+  position: fixed;
+  bottom: 280rpx;
+  left: 0;
+  right: 0;
+  text-align: center;
+  z-index: 3;
+}
+
+.phase-name {
+  font-size: 28rpx;
+  letter-spacing: 8rpx;
+  transition: opacity 0.3s;
+}
+
+/* 返回按钮 */
+.back-btn {
+  position: fixed;
+  top: 100rpx;
+  left: 40rpx;
+  width: 64rpx;
+  height: 64rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.back-btn:active { opacity: 0.4; }
+
+.back-icon {
+  font-size: 40rpx;
+  color: rgba(201,168,124,0.2);
+}
+
+/* 底部模式切换 */
+.mode-btn {
+  position: fixed;
+  bottom: 160rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 18rpx 60rpx;
+  border-radius: 36rpx;
+  background: rgba(201,168,124,0.04);
+  border: 1rpx solid rgba(201,168,124,0.1);
+  z-index: 10;
+}
+
+.mode-btn:active { opacity: 0.5; }
+
+.mode-text {
+  font-size: 22rpx;
+  color: rgba(201,168,124,0.25);
+  letter-spacing: 6rpx;
+}
+
+/* 阶段切换脉冲 - 配合呼吸节奏 */
+.phase-pulse {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 0;
+  pointer-events: none;
+  animation: phaseFlash 2.5s ease-out forwards;
+}
+
+@keyframes phaseFlash {
+  0% { opacity: 0.8; background: radial-gradient(circle at 50% 35%, rgba(100,130,200,0.08) 0%, transparent 60%); }
+  50% { opacity: 0.3; }
+  100% { opacity: 0; background: radial-gradient(circle at 50% 35%, rgba(100,130,200,0) 0%, transparent 60%); }
+}

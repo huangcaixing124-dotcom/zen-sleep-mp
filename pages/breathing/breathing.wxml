@@ -1,0 +1,44 @@
+<!--pages/breathing/breathing.wxml-->
+<view class="container">
+  <!-- 背景 -->
+  <view class="bg"></view>
+
+  <!-- 阶段切换脉冲 -->
+  <view class="phase-pulse" wx:if="{{pulseKey > 0}}" key="pp-{{pulseKey}}"></view>
+
+  <!-- 粒子 -->
+  <view class="particles">
+    <view class="particle" wx:for="{{25}}" wx:key="index"
+      style="left:{{(item * 4) % 100}}%; top:{{(item * 7 + 20) % 100}}%; animation-delay:{{item * 0.5}}s; animation-duration:{{10 + (item % 5) * 3}}s; opacity:{{0.2 + (item % 3) * 0.1}};">
+    </view>
+  </view>
+
+  <!-- 呼吸圆 -->
+  <view class="breath-area">
+    <!-- 外层光晕 -->
+    <view class="breath-glow" style="width:{{glowSize}}px; height:{{glowSize}}px; background:radial-gradient(circle, {{glowColor}} 0%, transparent 70%);"></view>
+
+    <!-- 3层呼吸圆 -->
+    <view class="breath-ring ring-outer" style="width:{{ringOuter}}px; height:{{ringOuter}}px; border-color:{{colorOuter}};"></view>
+    <view class="breath-ring ring-mid" style="width:{{ringMid}}px; height:{{ringMid}}px; border-color:{{colorMid}};"></view>
+    <view class="breath-circle" style="width:{{circleSize}}px; height:{{circleSize}}px; background:{{colorInner}};"></view>
+
+    <!-- 圆内高光 -->
+    <view class="breath-highlight" style="width:{{circleSize * 0.8}}px; height:{{circleSize * 0.8}}px;"></view>
+  </view>
+
+  <!-- 阶段文字 -->
+  <view class="phase-text">
+    <text class="phase-name" style="color:{{textColor}};">{{phaseName}}</text>
+  </view>
+
+  <!-- 返回按钮 -->
+  <view class="back-btn" bindtap="goBack">
+    <text class="back-icon">←</text>
+  </view>
+
+  <!-- 底部模式切换 -->
+  <view class="mode-btn" bindtap="switchPattern">
+    <text class="mode-text">{{patternName}}</text>
+  </view>
+</view>

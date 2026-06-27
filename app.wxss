@@ -1,0 +1,23 @@
+/* 全局样式 */
+page {
+  background: #08060e;
+  color: #c9a87c;
+  font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}
+
+.container {
+  min-height: 100vh;
+  background: #08060e;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 淡入动画 */
+.fade-in {
+  animation: fadeIn 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}

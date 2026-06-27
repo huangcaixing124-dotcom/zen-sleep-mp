@@ -1,0 +1,14 @@
+{
+  "pages": [
+    "pages/home/home",
+    "pages/breathing/breathing",
+    "pages/zen/zen"
+  ],
+  "window": {
+    "navigationStyle": "custom",
+    "backgroundColor": "#08060e",
+    "backgroundTextStyle": "light",
+    "navigationBarTextStyle": "white"
+  },
+  "sitemapLocation": "sitemap.json"
+}

@@ -1,0 +1,51 @@
+<!--pages/zen/zen.wxml-->
+<view class="container" bindtap="onStrike">
+  <view class="bg"></view>
+
+  <!-- 背景粒子 -->
+  <view class="particles">
+    <view class="particle" wx:for="{{20}}" wx:key="index"
+      style="left:{{(item * 5) % 100}}%; top:{{(item * 8 + 10) % 100}}%; animation-delay:{{item * 0.4}}s; animation-duration:{{8 + (item % 4) * 3}}s;">
+    </view>
+  </view>
+
+  <!-- 背景脉冲 -->
+  <view class="bg-pulse" wx:if="{{pulseKey > 0}}" key="bgp-{{pulseKey}}" style="animation-duration:{{pulseDur}}ms;"></view>
+
+  <!-- 涟漪 -->
+  <view wx:for="{{ripples}}" wx:key="id"
+    class="ripple"
+    style="left:{{item.x}}px; top:{{item.y}}px; animation-duration:{{item.dur}}ms; animation-delay:{{item.delay}}ms;">
+  </view>
+
+  <!-- 敲击粒子爆发 -->
+  <view wx:for="{{strikeParticles}}" wx:key="id"
+    class="strike-dot"
+    style="left:{{item.x}}px; top:{{item.y}}px; --dx:{{item.dx}}px; --dy:{{item.dy}}px; animation-duration:{{item.dur}}ms; opacity:{{item.alpha}};">
+  </view>
+
+  <!-- 中央光晕（呼吸脉动） -->
+  <view class="glow glow-breathe" style="width:{{imgSize * 2.6}}rpx; height:{{imgSize * 2.6}}rpx;"></view>
+
+  <!-- 图片（敲击时亮度提升） -->
+  <view class="img-area" style="width:{{imgSize}}rpx; height:{{imgSize}}rpx;">
+    <image
+      class="zen-img {{striking ? 'striking' : ''}}"
+      src="{{mode === 'muyu' ? '/assets/images/muyu.png' : '/assets/images/bowl.png'}}"
+      mode="aspectFit"
+    />
+  </view>
+
+  <!-- 敲击计数 -->
+  <text class="count" wx:if="{{count > 0}}">{{count}}</text>
+
+  <!-- 返回按钮 -->
+  <view class="back-btn" catchtap="goBack">
+    <text class="back-icon">←</text>
+  </view>
+
+  <!-- 模式切换 -->
+  <view class="mode-btn" catchtap="switchMode">
+    <text class="mode-text">{{mode === 'muyu' ? '木 鱼' : '颂 钵'}}</text>
+  </view>
+</view>
